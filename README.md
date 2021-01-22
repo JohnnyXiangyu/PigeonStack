@@ -55,3 +55,16 @@ init.py will pass control to UI.py, which will decide either to parse arguments 
 After UI.py gathers enough information, it notifies init.py what was the user command. This message should also include how the user interacts with the program.
 
 init.py will then execute the command. In the process CRUD operations will be performed by calling Storage.py.
+
+
+# Scratch Paper  
+
+By all means things here mean nothing. It's my scratch paper.
+
+list name
+list alias
+collection of data
+    summary
+    content
+    comment
+
