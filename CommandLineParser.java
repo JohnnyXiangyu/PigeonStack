@@ -1,6 +1,4 @@
 public class CommandLineParser {
-    private String[] rawArgs;
-
     public enum UIMode {
         INTERACTIVE, NEWITEM
     }
@@ -14,10 +12,7 @@ public class CommandLineParser {
     private UIMode mode;
     private NewItemInfo niInfo;
 
-
     public void ProcessArgs(String[] rs) {
-        this.rawArgs = rs;
-
         // Parse options
         if (rs.length == 0 || rs[0] == "--interactive" || rs[0] == "-i") { // interactive
             // Should be the only option
@@ -37,13 +32,12 @@ public class CommandLineParser {
                 niInfo.content = rs[2];
                 niInfo.comment = rs[3];
                 niInfo.priorityLevel = Integer.parseInt(rs[4]);
-            } 
+            }
             if (rs.length == 7) {
                 // All above and --to destination
                 if (rs[6] == "--to" || rs[6] == "-t") {
                     niInfo.destination = rs[7];
-                }
-                else {
+                } else {
                     // error out
                     System.out.println("Error: bad argument \"" + rs[6] + "\"");
                     System.exit(160);

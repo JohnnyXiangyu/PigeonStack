@@ -1,6 +1,9 @@
 class PigeonStack {
 
     public static void main(String args[]) {
-        System.out.println("Hello World!");
+        // parse arguments
+        CommandLineParser myParser = new CommandLineParser();
+        myParser.ProcessArgs(args); // information will be loaded into the class automatically
+        
     }
 }
