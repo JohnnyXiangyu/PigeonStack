@@ -61,10 +61,10 @@ init.py will then execute the command. In the process CRUD operations will be pe
 
 By all means things here mean nothing. It's my scratch paper.
 
-list name
-list alias
-collection of data
-    summary
-    content
-    comment
+list creation
+list removal
+adding item
+deleting item
+returning whole list
+peek top item
 
