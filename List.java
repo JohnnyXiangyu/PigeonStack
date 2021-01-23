@@ -1,3 +1,4 @@
+import java.io.Console;
 import java.util.*;
 
 public class List {
@@ -29,14 +30,12 @@ public class List {
         }
 
         @Override
-        public int compareTo(Item other) { 
+        public int compareTo(Item other) {
             if (this.priorityLevel < other.priorityLevel) {
                 return -1;
-            }
-            else if (this.priorityLevel > other.priorityLevel) {
+            } else if (this.priorityLevel > other.priorityLevel) {
                 return 1;
-            }
-            else {
+            } else {
                 return 0;
             }
         }
@@ -44,14 +43,13 @@ public class List {
 
     public void AddItem(String summary, String content, String comment, int priority_level) {
         Item newItem = new Item(summary, content, comment, priority_level);
-        
+
         // decide if the item is important
         if (newItem.priorityLevel > 0) {
             // important: need to order them
             importantItems.add(newItem);
             setOfImportant.add(newItem);
-        }
-        else {
+        } else {
             // nonimportant: append directly
             negativeItems.add(newItem);
         }
@@ -61,18 +59,37 @@ public class List {
         if (item_index < importantItems.size()) {
             // important
             Item victim = null;
+
             // iterate index times to find the victim pointer
             Iterator<Item> iterator = importantItems.iterator();
             for (int i = 0; i <= item_index; i++) {
                 victim = iterator.next();
             }
+
             // remove the found item
             importantItems.remove(victim);
             setOfImportant.remove(victim);
-        }
-        else {
+        } else {
             // remove item from list directly
             negativeItems.remove(item_index - importantItems.size());
+        }
+    }
+
+    public void PrintImportantItems() {
+        Iterator<Item> it = importantItems.iterator();
+        while (it.hasNext()) {
+            Item temp = it.next();
+            String whole_item = temp.summary + " | " + temp.content + " | " + temp.comment;
+            System.out.println(whole_item);
+        }
+    }
+
+    public void PrintNonImportantItems() {
+        Iterator<Item> it = negativeItems.iterator();
+        while (it.hasNext()) {
+            Item temp = it.next();
+            String whole_item = temp.summary + " | " + temp.content + " | " + temp.comment;
+            System.out.println(whole_item);
         }
     }
 }
