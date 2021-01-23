@@ -1,4 +1,12 @@
 public class UserAction {
+    public static UserAction instance = null;
+
+    public UserAction() {
+        if (instance == null) {
+            instance = this;
+        }
+    }
+
     public enum Action {
         INTERACTIVE, NEWITEM
     }
