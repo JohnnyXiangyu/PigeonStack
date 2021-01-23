@@ -56,15 +56,8 @@ After UI.py gathers enough information, it notifies init.py what was the user co
 
 init.py will then execute the command. In the process CRUD operations will be performed by calling Storage.py.
 
-
-# Scratch Paper  
+## Scratch Paper
 
 By all means things here mean nothing. It's my scratch paper.
 
-list creation
-list removal
-adding item
-deleting item
-returning whole list
-peek top item
-
+make list aliases unique but names don't have to be
