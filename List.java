@@ -17,7 +17,7 @@ public class List {
         this.setOfImportant = new HashSet<Item>();
     }
 
-    private class Item implements Comparable<Item> {
+    private static class Item implements Comparable<Item> {
         public String summary, content, comment;
         public int priorityLevel; // range 1~10, or nagative number for "not important"
 

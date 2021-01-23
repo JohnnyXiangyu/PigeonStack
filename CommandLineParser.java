@@ -1,4 +1,6 @@
 public class CommandLineParser {
+    public static CommandLineParser instance = null;
+
     public enum UIMode {
         INTERACTIVE, NEWITEM
     }
@@ -11,6 +13,13 @@ public class CommandLineParser {
 
     private UIMode mode;
     private NewItemInfo niInfo;
+
+    public CommandLineParser() {
+        // singleton 
+        if (instance == null) {
+            instance = this;
+        }
+    }
 
     public void ProcessArgs(String[] rs) {
         // Parse options
