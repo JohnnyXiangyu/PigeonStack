@@ -9,7 +9,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
 public class JsonStorageModule implements StorageModule {
-    public static StorageModule instance = null;
+    public static JsonStorageModule instance = null;
 
     private class Settings {
         public LinkedList<HashMap<String, String>> listNames = new LinkedList<HashMap<String, String>>();
