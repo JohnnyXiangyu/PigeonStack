@@ -1,0 +1,10 @@
+{
+    "path": "foo/bar",
+    
+    "lists": [
+        {
+            "name": "foo",
+            "alias": "bar"
+        }
+    ]
+}
