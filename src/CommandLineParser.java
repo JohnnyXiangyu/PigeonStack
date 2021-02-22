@@ -27,7 +27,7 @@ public class CommandLineParser {
             UserAction.instance.mode = UserAction.Action.NEWITEM;
             if (rs.length == 5 || rs.length == 7) {
                 // Summary, content, comment, priority
-                UserAction.instance.niInfo = UserAction.instance.new NewItemInfo();
+                UserAction.instance.niInfo = new UserAction.NewItemInfo();
                 UserAction.instance.niInfo.summary = rs[1];
                 UserAction.instance.niInfo.content = rs[2];
                 UserAction.instance.niInfo.comment = rs[3];

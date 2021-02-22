@@ -11,7 +11,7 @@ public class UserAction {
         INTERACTIVE, NEWITEM
     }
 
-    public class NewItemInfo { // only associated with Action.NEWITEM
+    public static class NewItemInfo { // only associated with Action.NEWITEM
         String summary, content, comment;
         int priorityLevel;
         String destination;
