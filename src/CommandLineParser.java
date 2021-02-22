@@ -14,7 +14,7 @@ public class CommandLineParser {
 
     public void ProcessArgs(String[] rs) {
         // Parse options
-        if (rs.length == 0 || rs[0] == "--interactive" || rs[0] == "-i") { // interactive
+        if (rs.length == 0 || rs[0].equals("--interactive") || rs[0].equals("-i")) { // interactive
             // Should be the only option
             if (rs.length <= 1) {
                 UserAction.instance.mode = UserAction.Action.INTERACTIVE;
@@ -23,7 +23,7 @@ public class CommandLineParser {
                 System.out.println("Error: too many arguments after \"" + rs[0] + "\"");
                 System.exit(120);
             }
-        } else if (rs[0] == "--new" || rs[0] == "-n") { // new item
+        } else if (rs[0].equals("--new") || rs[0].equals("-n")) { // new item
             UserAction.instance.mode = UserAction.Action.NEWITEM;
             if (rs.length == 5 || rs.length == 7) {
                 // Summary, content, comment, priority
@@ -36,7 +36,7 @@ public class CommandLineParser {
             }
             if (rs.length == 7) {
                 // All above and --to destination
-                if (rs[6] == "--to" || rs[6] == "-t") {
+                if (rs[6].equals("--to") || rs[6].equals("-t")) {
                     UserAction.instance.niInfo.destination = rs[7];
                 } else {
                     // error out
