@@ -36,8 +36,8 @@ public class CommandLineParser {
             }
             if (rs.length == 7) {
                 // All above and --to destination
-                if (rs[6].equals("--to") || rs[6].equals("-t")) {
-                    UserAction.instance.niInfo.destination = rs[7];
+                if (rs[5].equals("--to") || rs[5].equals("-t")) {
+                    UserAction.instance.niInfo.destination = rs[6];
                 } else {
                     // error out
                     System.out.println("Error: bad argument \"" + rs[6] + "\"");

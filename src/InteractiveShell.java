@@ -9,13 +9,13 @@ public class InteractiveShell {
     }
 
     public void Start() { // pass control to shell
-        String newCommand = "";
-        Boolean interrupted = false;
+        String newCommand;
+        boolean interrupted = false;
         System.out.println("PigeonStack: Entering interactive shell");
 
         // main routine
         while (!interrupted) {
-            System.out.printf(">> ");
+            System.out.print(">> ");
             newCommand = System.console().readLine();
             switch (newCommand) {
                 case "reset":
@@ -32,7 +32,7 @@ public class InteractiveShell {
 
     }
 
-    public static void main(String args[]) { // debug code
+    public static void main(String[] args) { // debug code
         new InteractiveShell();
         InteractiveShell.instance.Start();
     }
