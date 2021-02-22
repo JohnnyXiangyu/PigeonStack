@@ -15,7 +15,7 @@ public class JsonStorageModule implements StorageModule {
     public static JsonStorageModule instance = null;
 
     private class Settings {
-        public LinkedList<HashMap<String, String>> listNames = new LinkedList<HashMap<String, String>>();
+        public LinkedList<HashMap<String, String>> listNames = new LinkedList<>();
         public String pathToFiles = "";
 
         public Settings() {
@@ -27,8 +27,8 @@ public class JsonStorageModule implements StorageModule {
                 
                 // get names of lists
                 JSONArray listNameArr = (JSONArray) globalSetting.get("lists");
-                for (int i = 0; i < listNameArr.size(); i++) {
-                    JSONObject tempListMeta = (JSONObject) listNameArr.get(i);
+                for (Object o : listNameArr) {
+                    JSONObject tempListMeta = (JSONObject) o;
                     HashMap<String, String> newDict = new HashMap<String, String>();
 
                     // metainfo of each list
@@ -47,7 +47,7 @@ public class JsonStorageModule implements StorageModule {
                 System.out.println("Json Storage Module: no global config found, create new? Y/n");
                 
                 String response = System.console().readLine();
-                if (response == "n" || response == "N") {
+                if (response.equals("n") || response.equals("N")) {
                     System.out.println("Json Storage Module: config creation cancelled, exiting ...");
                 }
                 else {
@@ -56,7 +56,7 @@ public class JsonStorageModule implements StorageModule {
                     System.out.println("Json Storage Module: input path to lists' folder");
                     while (!success) {
                         response = System.console().readLine();
-                        if (response == "!e") {
+                        if (response.equals("!e")) {
                             // user breaks
                             System.out.println("Json Storage Module: operation cancelled, exiting ...");
                             System.exit(0);
@@ -105,12 +105,10 @@ public class JsonStorageModule implements StorageModule {
         JSONArray listArr = new JSONArray();
 
         // serialize json array
-        Iterator<HashMap<String, String>> it = mySettings.listNames.iterator();
-        while (it.hasNext()) {
-            HashMap<String, String> temp = it.next();
+        for (HashMap<String, String> temp : mySettings.listNames) {
             JSONObject tempJson = new JSONObject();
-            tempJson.put("name", (String) temp.get("name"));
-            tempJson.put("alias", (String) temp.get("alias"));
+            tempJson.put("name", temp.get("name"));
+            tempJson.put("alias", temp.get("alias"));
 
             listArr.add(tempJson);
         }
