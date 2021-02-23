@@ -1,3 +1,5 @@
+import org.jetbrains.annotations.NotNull;
+
 public class CommandLineParser {
     public static CommandLineParser instance = null;
 
@@ -12,7 +14,7 @@ public class CommandLineParser {
         new UserAction();
     }
 
-    public void ProcessArgs(String[] rs) {
+    public void ProcessArgs(String @NotNull [] rs) {
         // Parse options
         if (rs.length == 0 || rs[0].equals("--interactive") || rs[0].equals("-i")) { // interactive
             // Should be the only option
